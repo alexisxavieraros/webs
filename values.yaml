@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: web-app-config
+data:
+  httpd.conf: |
+    ServerRoot "/usr/local/apache2"
+    Listen 80
+    ErrorLog "/usr/local/apache2/logs/error_log"
+    LogLevel warn
+    <Directory "/usr/local/apache2/htdocs">
+      AllowOverride None
+      Require all granted
+    </Directory>
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Mi página web</title>
+    </head>
+    <body>
+      <h1>Bienvenido a mi página web</h1>
+    </body>
+    </html>
